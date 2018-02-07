@@ -1,0 +1,54 @@
+<%= render "shared/home_login_header" %>
+
+
+
+<% if current_user.nil? %>
+
+<% else %>
+
+<div class="alert alert-success" role="alert" >
+<p>Welcome ! <%= current_user.email %> </p>
+
+
+</div>
+ 
+<% end %>
+
+
+<%= image_tag("swafhome.jpg", class: "swafhomecenter") %>
+
+<div align="center">
+
+
+
+
+
+
+
+
+
+<% if current_user.nil? %>
+<%= link_to new_user_session_path, class: 'btn btn-primary' do %>Login<% end %>
+<%= link_to new_user_registration_path, class: 'btn btn-success' do %>Register<% end %>
+
+
+   <% else %>
+
+   <%= link_to new_activity_path, class: 'btn btn-success' do %>Create Activity<% end %>
+   <%= link_to destroy_user_session_path, class: 'btn btn-warning' do %>Logout<% end %>
+
+
+   
+
+   <% end %>
+
+
+
+  
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+
+
+</div>
+

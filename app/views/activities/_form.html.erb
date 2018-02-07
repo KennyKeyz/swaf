@@ -1,0 +1,51 @@
+  <%= render "shared/home_login_header" %>
+
+
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Staff Work Activity Form</div>
+      <div class="card-body">
+
+
+
+<%= form_with(model: activity, local: true) do |form| %>
+  <% if activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+      <% activity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :time_from %>
+    <%= form.text_field :time_from, id: :activity_time_from,class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time_to %>
+    <%= form.text_field :time_to, id: :activity_time_to,class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail %>
+    <%= form.text_area :detail, id: :activity_detail,class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks %>
+    <%= form.text_area :remarks, id: :activity_remarks,class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+</div>
+</div>
+

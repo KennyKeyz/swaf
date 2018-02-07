@@ -1,0 +1,78 @@
+
+ <div class="container">
+
+<p id="notice"><%= notice %></p>
+
+ <!-- Example DataTables Card-->
+ <br/>
+ <br/>
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Data Table Example</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Time from</th>
+                  <th>Time to </th>
+                  <th>Activity</th>
+                  <th>Remarks</th>
+                  <th>Date Created </th>
+                   <th>Show </th>
+                     <th>Edit </th>
+                       <th>Delete </th>
+                  
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                    <th>Time from</th>
+                  <th>Time to </th>
+                  <th>Activity</th>
+                  <th>Remarks</th>
+                  <th>Date Created </th>
+                   <th>Show </th>
+                     <th>Edit </th>
+                       <th>Delete </th>
+                
+                </tr>
+              </tfoot>
+               <tbody>
+
+                 <% current_user.activities.each do |activity| %>
+                     <tr>
+        <td><%= activity.time_from %></td>
+        <td><%= activity.time_to %></td>
+        <td><%= activity.detail %></td>
+        <td><%= activity.remarks %></td>
+           <td><%= activity.created_at %></td>
+
+        <td><%= link_to 'Show', activity %></td>
+        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+   <% end %>
+
+
+            
+             </tbody>
+
+            </table>
+            </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <%= link_to 'New Activity', new_activity_path %>
+
+            </div>
+
+
+
+
+
+
+
+
+</div>

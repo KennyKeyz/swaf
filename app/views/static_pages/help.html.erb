@@ -1,0 +1,56 @@
+
+
+
+<%= render "shared/application_header" %>
+
+   <div class="content-wrapper">
+    <div class="container-fluid">
+
+
+
+
+<div align="center">
+
+
+
+
+
+
+<p>Click here !!</p>
+
+
+
+
+<% if current_user.nil? %>
+<%= link_to new_user_session_path, class: 'btn btn-primary' do %>Login<% end %>
+<%= link_to new_user_session_path, class: 'btn btn-success' do %>Register<% end %>
+
+
+   <% else %>
+
+   <%= link_to contact_us_path, class: 'btn btn-success' do %>Create Activity<% end %>
+
+   
+
+   <% end %>
+
+
+</div>
+
+
+    </div>
+
+
+
+
+
+     <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+
+
+
+
+
+    </div>

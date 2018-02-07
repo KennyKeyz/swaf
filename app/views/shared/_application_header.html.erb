@@ -1,0 +1,134 @@
+
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+
+ <%= link_to root_path,class: 'navbar-brand' do %>
+Work Activity
+
+<% end %>
+   
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+
+
+<% if current_user.nil? %>
+
+ <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Link</span>
+          </a>
+        </li>
+
+<%else %>
+
+       
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Create Activity">
+
+     <%= link_to new_activity_path,class: 'nav-link' do %>
+      <i class="fa fa-fw fa-dashboard"></i> Create Activity
+      <% end %>
+
+      </li>
+
+   
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="View Activities">
+
+     <%= link_to activities_path,class: 'nav-link' do %>
+      <i class="fa fa-fw fa-eye"></i> View Activities
+      <% end %>
+
+      </li>
+
+   <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Approved Activities">
+
+     <%= link_to themed_pages_construction_path,class: 'nav-link' do %>
+      <i class="fa fa-check-circle"></i> Approved Activities
+      <% end %>
+
+      </li>
+
+
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Not Approved ">
+
+     <%= link_to themed_pages_construction_path,class: 'nav-link' do %>
+      <i class="fa fa-ban"></i> Not Approved 
+      <% end %>
+
+      </li>
+
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Contact IT">
+
+     <%= link_to themed_pages_contact_path,class: 'nav-link' do %>
+      <i class="fa fa-phone"></i> Contact IT
+      <% end %>
+
+      </li>
+     
+
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="About">
+
+     <%= link_to themed_pages_about_path,class: 'nav-link' do %>
+      <i class="fa fa-info-circle"></i> About
+      <% end %>
+
+      </li>
+
+
+    
+
+      
+       
+      
+
+        <% end %>
+      </ul>
+
+
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+
+
+
+      <ul class="navbar-nav ml-auto">
+        
+       <% if current_user.nil? %>
+
+       
+       <li class="nav-item">
+
+<%= link_to new_user_session_path,class: 'nav-link' do %>
+<i class="fa fa-fw fa-sign-in"></i> Login
+<% end %>
+
+</li>
+
+
+<% else %>
+       
+       <li class="nav-item">
+
+<%= link_to destroy_user_session_path,class: 'nav-link' do %>
+<i class="fa fa-fw fa-sign-out"></i> Logout
+<% end %>
+
+</li>
+
+<% end %>
+
+
+
+      </ul>
+    </div>
+  </nav>
+
