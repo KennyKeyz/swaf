@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207190759) do
+ActiveRecord::Schema.define(version: 20180208064918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.string "time_from"
-    t.string "time_to"
+    t.datetime "time_from"
+    t.datetime "time_to"
     t.text "detail"
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.text "time_zone"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 

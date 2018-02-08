@@ -66,5 +66,7 @@ gem 'rails_admin', '~> 1.2'
 
 gem 'cancancan', '~> 2.0'
 
+gem 'combined_time_select', '~> 2.0'
+
 
 ruby "2.5.0"
