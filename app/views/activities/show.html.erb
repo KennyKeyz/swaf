@@ -30,6 +30,11 @@
   <%= @activity.remarks %>
 </p>
 
+<p>
+  <strong>Approval status:</strong>
+  <%= @activity.status %>
+</p>
+
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <%= link_to 'Back', activities_path %>
 

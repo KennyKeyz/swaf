@@ -4,12 +4,16 @@ Rails.application.routes.draw do
 
 
 
-  get 'themed_pages/construction'
+  resources :sectors
 
-  get 'themed_pages/about'
+  get 'construction', to: 'themed_pages#construction'
 
-  get 'themed_pages/contact'
-  get 'themed_pages/landing'
+  get 'about', to: 'themed_pages#about'
+
+  get 'user-dashboard', to: 'themed_pages#landing'
+
+  get 'contact', to: 'themed_pages#contact'
+
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
@@ -18,7 +22,15 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
   }
 
-  resources :activities
+  resources :activities do
+    member do
+      get :toggle_status
+    end
+  end 
+
+  get 'approval-list', to: 'activities#approvals'
+
+
   resources :departments
 
   

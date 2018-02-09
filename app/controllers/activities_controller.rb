@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :set_activity, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   layout "main_template"
 
@@ -7,7 +7,13 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.all
+    #@activities = Activity.where(user_id: User.where(id: '8'))
   end
+
+  def approvals
+    @approvals = Activity.where(user_id: User.where(department_id: current_user.department_id))
+
+  end  
 
   # GET /activities/1
   # GET /activities/1.json
@@ -62,6 +68,20 @@ class ActivitiesController < ApplicationController
       format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+
+
+  def toggle_status
+
+    if @activity.pending?
+      @activity.approved!
+    elsif @activity.approved?
+      @activity.pending!
+    end    
+
+    redirect_to activities_url
+
   end
 
   private

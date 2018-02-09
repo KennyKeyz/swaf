@@ -47,7 +47,7 @@ Work Activity
 
    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Approved Activities">
 
-     <%= link_to themed_pages_construction_path,class: 'nav-link' do %>
+     <%= link_to construction_path,class: 'nav-link' do %>
       <i class="fa fa-check-circle"></i> Approved Activities
       <% end %>
 
@@ -56,7 +56,7 @@ Work Activity
 
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Not Approved ">
 
-     <%= link_to themed_pages_construction_path,class: 'nav-link' do %>
+     <%= link_to construction_path,class: 'nav-link' do %>
       <i class="fa fa-ban"></i> Not Approved 
       <% end %>
 
@@ -64,7 +64,7 @@ Work Activity
 
            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Contact IT">
 
-     <%= link_to themed_pages_contact_path,class: 'nav-link' do %>
+     <%= link_to contact_path,class: 'nav-link' do %>
       <i class="fa fa-phone"></i> Contact IT
       <% end %>
 
@@ -73,11 +73,29 @@ Work Activity
 
            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="About">
 
-     <%= link_to themed_pages_about_path,class: 'nav-link' do %>
+     <%= link_to about_path,class: 'nav-link' do %>
       <i class="fa fa-info-circle"></i> About
       <% end %>
 
       </li>
+
+              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">Admin Functions</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMulti">
+            <li>
+               <%= link_to approval_list_path,class: 'nav-link' do %>
+      <i class="fa fa-fw fa-eye"></i> View Activities
+      <% end %>
+
+            </li>
+          
+           
+      
+          </ul>
+        </li>
 
 
     

@@ -43,13 +43,13 @@
               </tfoot>
                <tbody>
 
-                 <% current_user.activities.each do |activity| %>
+                 <% @approvals.each do |activity| %>
                      <tr>
         <td><%= activity.time_from %></td>
         <td><%= activity.time_to %></td>
         <td><%= activity.detail %></td>
         <td><%= activity.remarks %></td>
-           <td><%= activity.created_at %></td>
+         
 
         <td><%= link_to 'Show', activity %></td>
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
@@ -61,6 +61,9 @@
            <td><%= link_to activity.status, toggle_status_activity_path(activity) %></td>
            <% else %>
            <td>  <%=  activity.status %> </td>
+
+            <td><%= activity.created_at %></td>
+
            <%end %>
 
       </tr>
