@@ -17,6 +17,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( main_template.scss)
 
+Rails.application.config.assets.precompile += %w( users.js)
+
 Rails.application.config.assets.precompile += %w( sb-admin.js )
 
 Rails.application.config.assets.precompile += %w( sb-admin-datatables.js)
