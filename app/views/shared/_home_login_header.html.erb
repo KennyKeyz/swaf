@@ -1,10 +1,18 @@
 <!-- Image and text -->
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
 
 
-   <%= image_tag("icgclogo.jpg" , width:'30', height:'30', class: "d-inline-block align-top") %>
-  
-    Staff Work Activity Form 
-  </a>
+
+
+     <%= link_to root_path,class: 'navbar-brand' do %>
+      <%= image_tag("icgclogo.jpg" , width:'30', height:'30', class: "d-inline-block align-top") %>
+      Staff Work Activity Form 
+      <% end %>
+
+
 </nav>
+
+
+
+  
+
