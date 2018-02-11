@@ -22,6 +22,21 @@
 
      <div class="form-group">
     <%= form.label :time_from %>
+
+
+    <% if current_user.ss_role? && current_user.su_role? %>
+
+
+    <div class="field">
+    <%= form.label :supervisor_comment %>
+    <%= form.text_area :supervisor_comment, id: :activity_supervisor_comment,class: 'form-control' %>
+  </div>
+
+  <% else %>
+
+  <% end %>
+
+
     <div> 
            <%= time_select :activity, :time_from, {:default => {:hour => '00', :minute => '00'}} %>
     </div>

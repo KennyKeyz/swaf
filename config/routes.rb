@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   end 
 
   get 'approval-list', to: 'activities#approvals'
+  get 'staff-approved-list', to: 'activities#staffapproved'
 
 
   resources :departments

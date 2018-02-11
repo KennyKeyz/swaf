@@ -15,6 +15,12 @@ class ActivitiesController < ApplicationController
 
   end  
 
+
+  def staffapproved
+    @staffapproved = Activity.where(user_id: current_user.id , status:"approved")
+
+  end  
+
   # GET /activities/1
   # GET /activities/1.json
   def show
@@ -80,7 +86,8 @@ class ActivitiesController < ApplicationController
       @activity.pending!
     end    
 
-    redirect_to activities_url
+    #redirect_to activities_url
+    redirect_to approval_list_url
 
   end
 
@@ -92,6 +99,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:time_from, :time_to, :detail, :remarks)
+      params.require(:activity).permit(:time_from, :time_to, :detail, :remarks, :supervisor_comment)
     end
 end

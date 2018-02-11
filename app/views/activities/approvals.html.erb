@@ -15,6 +15,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
+                  <th>Staff Name</th>
                   <th>Time from</th>
                   <th>Time to </th>
                   <th>Activity</th>
@@ -30,6 +31,8 @@
               </thead>
               <tfoot>
                 <tr>
+                <th>Staff Name</th>
+
                     <th>Time from</th>
                   <th>Time to </th>
                   <th>Activity</th>
@@ -47,6 +50,7 @@
 
                  <% @approvals.each do |activity| %>
                      <tr>
+       <td><%= activity.user.first_name %></td>
         <td><%= activity.time_from %></td>
         <td><%= activity.time_to %></td>
         <td><%= activity.detail %></td>
