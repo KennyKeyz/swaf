@@ -24,7 +24,7 @@
     <%= form.label :time_from %>
 
 
-    <% if current_user.ss_role? && current_user.su_role? %>
+    <% if current_user.ss_role? || current_user.su_role? %>
 
 
     <div class="field">
