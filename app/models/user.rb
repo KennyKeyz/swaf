@@ -8,7 +8,7 @@ class User < ApplicationRecord
   belongs_to :department   
   has_one :sector, through: :department
 
-  has_many :activities 
+  has_many :activities, dependent: :destroy	 
   
 
 end
