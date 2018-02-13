@@ -2,21 +2,77 @@
 
 
 
+
+
 <% if current_user.nil? %>
 
 <% else %>
 
 <div class="alert alert-success" role="alert" >
-<p>Welcome ! <%= current_user.email %> </p>
+<p>Welcome ! <%= current_user.first_name %> </p>
 
 
 </div>
  
 <% end %>
 
+
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+           <%= image_tag("swaf.jpg", class: "first-slide") %>
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <h1>Ecclesiastes 9:10</h1>
+                <p>Whatever your hand finds to do, do it with your might; for there is no work or device or knowledge or wisdom in the grave where you are going</p>
+               
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag("swaf.jpg", class: "second-slide") %>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Announcement !!!</h1>
+                <p>Get ready to start using the staff work activity form. Feel free to contact the office if you have any questions</p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+             <%= image_tag("swaf.jpg", class: "third-slide") %>
+            <div class="container">
+              <div class="carousel-caption text-right">
+                <h1>Notice</h1>
+                <p>The staff work activity form is to measure your progress</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+
 <div class="text-center">
 <%= image_tag("swafhome.jpg", class: "img-fluid") %>
 </div>
+
+
 
 <div align="center">
 
@@ -24,19 +80,15 @@
 
 
 
-
-
-
-
-<% if current_user.nil? %>
-<%= link_to new_user_session_path, class: 'btn btn-primary' do %>Login<% end %>
-<%= link_to new_user_registration_path, class: 'btn btn-success' do %>Register<% end %>
+<% if current_user.nil? %> 
+<%= link_to new_user_session_path, class: 'btn btn-lg btn btn-primary' do %>Login<% end %>
+<%= link_to new_user_registration_path, class: 'btn btn-lg btn btn-success' do %>Register<% end %>
 
 
    <% else %>
 
-   <%= link_to new_activity_path, class: 'btn btn-success' do %>Create/View Activity<% end %>
-   <%= link_to destroy_user_session_path, class: 'btn btn-warning' do %>Logout<% end %>
+   <%= link_to new_activity_path, class: 'btn btn-lg btn btn-success' do %>Create/View Activity<% end %>
+   <%= link_to destroy_user_session_path, class: 'btn btn-lg btn btn-warning' do %>Logout<% end %>
 
 
    
@@ -53,3 +105,4 @@
 
 </div>
 
+   

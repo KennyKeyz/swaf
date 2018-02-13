@@ -1,6 +1,3 @@
-
-
-
 jQuery(function() {
   var departments;
   $('#user_department_id').parent().hide();
