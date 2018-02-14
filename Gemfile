@@ -68,5 +68,9 @@ gem 'cancancan', '~> 2.0'
 
 gem 'combined_time_select', '~> 2.0'
 
+gem 'thinreports', '~> 0.10.1'
+
+gem 'thinreports-rails', '~> 0.4.0'
+
 
 ruby "2.5.0"

@@ -1,12 +1,23 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy, :toggle_status]
 
+
   layout "main_template"
 
   # GET /activities
   # GET /activities.json
   def index
     @activities = Activity.all
+    @user_activities = current_user.activities
+     respond_to do |format|
+      format.html
+      format.pdf do
+        send_data generate_activities_report(@user_activities), filename: 'foo.pdf',
+                                                           type: 'application/pdf', 
+                                                          disposition: 'attachment'
+        end
+    end
+  
     #@activities = Activity.where(user_id: User.where(id: '8'))
   end
 
@@ -107,4 +118,26 @@ class ActivitiesController < ApplicationController
     def activity_params
       params.require(:activity).permit(:time_from, :time_to, :detail, :remarks, :supervisor_comment,:sector_head_comment)
     end
+
+
+
+    def generate_activities_report(activities)
+      report = Thinreports::Report.new layout: File.join(Rails.root, 'app', 'reports', 'activity', 'list.tlf')
+
+      activities.each do |activity|
+        report.list.add_row do |row|
+          row.values no: activity.id,
+                     staff: activity.user.first_name,
+                     department: activity.user.department.name,
+                     activity: activity.detail,
+                     remarks: activity.remarks,
+                     status: activity.status
+                     row.item(:status).style(:color, 'red') unless activity.approved?
+                     
+          end
+      end
+
+      report.generate
+    end
+
 end
