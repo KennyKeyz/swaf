@@ -24,7 +24,7 @@
                    <th>Show </th>
                      <th>Edit </th>
                        <th>Delete </th>
-                         <th>Approved? </th>
+                         <th>Approval </th>
                           <th>Supervisor comment </th>
                   
                 </tr>
@@ -40,7 +40,7 @@
                    <th>Show </th>
                      <th>Edit </th>
                        <th>Delete </th>
-                         <th>Approved? </th>
+                         <th>Approval </th>
                          <th>Supervisor comment </th>
                 
                 </tr>
@@ -50,8 +50,8 @@
                  <% current_user.activities.each do |activity| %>
                      <tr>
                         <td><%= activity.user.first_name %></td>
-        <td><%= activity.time_from %></td>
-        <td><%= activity.time_to %></td>
+        <td><%= activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %></td>
+        <td><%= activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         <td><%= activity.detail %></td>
         <td><%= activity.remarks %></td>
            <td><%= activity.created_at %></td>

@@ -16,14 +16,15 @@
               <thead>
                 <tr>
                   <th>Staff Name</th>
+                   <th>Department</th>
                   <th>Time from</th>
                   <th>Time to </th>
                   <th>Activity</th>
                   <th>Remarks</th>
                    <th>Show </th>
-                     <th>Edit </th>
-                       <th>Delete </th>
-                         <th>Approved? </th>
+                     <th>Add remark </th>
+                     
+                         <th>Approval </th>
                            
                   <th>Date Created </th>
                   
@@ -32,25 +33,26 @@
               <tfoot>
                 <tr>
                 <th>Staff Name</th>
-
+                   <th>Department</th>
                     <th>Time from</th>
                   <th>Time to </th>
                   <th>Activity</th>
                   <th>Remarks</th>
                  
                    <th>Show </th>
-                     <th>Edit </th>
-                       <th>Delete </th>
-                         <th>Approved? </th>
+                     <th>Add remark </th>
+                    
+                         <th>Approval </th>
                           <th>Date Created </th>
                 
                 </tr>
               </tfoot>
                <tbody>
 
-                 <% @staffapproved.each do |activity| %>
+                 <% @sectapprovals.each do |activity| %>
                      <tr>
        <td><%= activity.user.first_name %></td>
+        <td><%= activity.user.department.name %></td>
         <td><%= activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         <td><%= activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         <td><%= activity.detail %></td>
@@ -58,11 +60,11 @@
          
 
         <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'add remark', edit_activity_path(activity) %></td>
+        
           
 
-          <%if current_user.su_role? || current_user.ss_role? %>
+          <%if current_user.su_role?  %>
 
            <td><%= link_to activity.status, toggle_status_activity_path(activity) %></td>
            <% else %>

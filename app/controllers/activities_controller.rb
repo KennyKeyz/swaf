@@ -16,6 +16,12 @@ class ActivitiesController < ApplicationController
   end  
 
 
+  def sectorapprovals
+    @sectapprovals = Activity.where(user_id: User.where(sector_id: current_user.sector_id))
+
+  end  
+
+
   def staffapproved
     @staffapproved = Activity.where(user_id: current_user.id , status:"approved")
 
@@ -99,6 +105,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:time_from, :time_to, :detail, :remarks, :supervisor_comment)
+      params.require(:activity).permit(:time_from, :time_to, :detail, :remarks, :supervisor_comment,:sector_head_comment)
     end
 end

@@ -69,7 +69,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                 :middle_name,
                                 :last_name,
                                 :phone_number,
-                                :department_id)
+                                :sector_id,
+                                :department_id
+                                )
   end
 
   def account_update_params
@@ -80,6 +82,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                 :middle_name,
                                 :last_name,
                                 :phone_number,
-                                :department_id)
+                                :sector_id,
+                                :department_id
+                                )
   end
 end

@@ -20,23 +20,33 @@
     </div>
   <% end %>
 
-     <div class="form-group">
-    <%= form.label :time_from %>
 
-
-    <% if current_user.ss_role? || current_user.su_role? %>
+      <% if  current_user.su_role? %>
 
 
     <div class="field">
+    <%= form.label :sector_head_comment %>
+    <%= form.text_area :sector_head_comment, id: :activity_sector_head_comment,class: 'form-control' %>
+  </div>
+
+
+
+
+   
+
+
+   <%elsif  activity.user.s_role?  %>
+ <div class="field">
     <%= form.label :supervisor_comment %>
     <%= form.text_area :supervisor_comment, id: :activity_supervisor_comment,class: 'form-control' %>
   </div>
-
-  <% else %>
-
   <% end %>
 
 
+     <div class="form-group">
+
+
+ <%= form.label :time_from %>
     <div> 
            <%= time_select :activity, :time_from, {:default => {:hour => '00', :minute => '00'}} %>
     </div>
@@ -76,6 +86,8 @@
     <%= form.label :remarks %>
     <%= form.text_area :remarks, id: :activity_remarks,class: 'form-control' %>
   </div>
+
+
 
   <div class="actions">
     <%= form.submit %>

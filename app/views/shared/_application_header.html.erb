@@ -73,38 +73,71 @@ CT Work Activity Form
       </li>
 
 
-       <% if current_user.su_role? || current_user.ss_role? %>
-
-              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Admin Functions</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-               <%= link_to approval_list_path,class: 'nav-link' do %>
-      <i class="fa fa-fw fa-eye"></i> View Approvals
-      <% end %>
-
-             </li>
-          
-           
-      
-          </ul>
-        </li>
-
-        <%else %>
-
-        <%end %>
 
 
-    
+<% if current_user.ss_role? %>
 
-      
-       
-      
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+<i class="fa fa-fw fa-sitemap"></i>
+<span class="nav-link-text">Admin Functions</span>
+</a>
+<ul class="sidenav-second-level collapse" id="collapseMulti">
+<li>
+<%= link_to approval_list_path,class: 'nav-link' do %>
+<i class="fa fa-fw fa-eye"></i> View Approvals
+<%end %>
+
+</li>
+
+
+
+</ul>
+
+
+</li>
+
+<% elsif current_user.su_role? %>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+<i class="fa fa-fw fa-sitemap"></i>
+<span class="nav-link-text">Sector Head Functions</span>
+</a>
+<ul class="sidenav-second-level collapse" id="collapseMulti">
+<li>
+<%= link_to sector_approval_list_path,class: 'nav-link' do %>
+<i class="fa fa-fw fa-eye"></i> View Approvals
+<%end %>
+
+</li>
+
+
+
+</ul>
+
+
+</li>
+
+<% else %>
+
+
+
+<%end %>
+
+         
+
+              
+
+
+
+
 
         <% end %>
+
+
+
+
       </ul>
 
 
@@ -141,6 +174,9 @@ CT Work Activity Form
 <% end %>
 
 </li>
+
+
+
 
 <% end %>
 

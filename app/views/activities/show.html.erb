@@ -12,12 +12,12 @@
 
 <p>
   <strong>Time from:</strong>
-  <%= @activity.time_from %>
+  <%= @activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %>
 </p>
 
 <p>
   <strong>Time to:</strong>
-  <%= @activity.time_to %>
+  <%= @activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %>
 </p>
 
 <p>
@@ -30,6 +30,17 @@
   <%= @activity.remarks %>
 </p>
 
+<p>
+  <strong>Sector Head's remarks:</strong>
+  <%= @activity.sector_head_comment %>
+</p>
+
+<% if current_user.s_role? %>
+<p>
+  <strong>Supervisor's remarks:</strong>
+  <%= @activity.supervisor_comment %>
+</p>
+<% end %>
 <p>
   <strong>Approval status:</strong>
   <%= @activity.status %>
