@@ -105,7 +105,12 @@ class ActivitiesController < ApplicationController
     end    
 
     #redirect_to activities_url
-    redirect_to approval_list_url
+    if current_user.ss_role?
+      redirect_to approval_list_url
+    elsif current_user.su_role?
+      redirect_to sector_approval_list_url
+    end  
+      
 
   end
 
