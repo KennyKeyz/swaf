@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy, :toggle_status]
-
+  
+  before_action :authenticate_user!
 
   layout "main_template"
 
