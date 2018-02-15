@@ -1,6 +1,129 @@
+  <%= render "shared/home_login_header" %>
 
 
-<%= render 'form', activity: @activity %>
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Staff Work Activity Form</div>
+      <div class="card-body">
 
-<%= link_to 'Show', @activity %> |
+
+
+<%= form_with(model: @activity, local: true) do |form| %>
+
+ <div class="form-group">
+
+
+ <%= form.label :time_from %>
+    <div> 
+           <%= time_select :activity, :time_from, {:default => {:hour => '00', :minute => '00'}} %>
+    </div>
+    
+
+    <div>
+         <%= date_select :activity, :time_from, :default=> Date.today %>
+    </div>
+    
+    
+ </div>
+
+
+     <div class="form-group">
+    <%= form.label :time_to %>
+    <div> 
+           <%= time_select :activity, :time_to, {:default => {:hour => '00', :minute => '00'}} %>
+    </div>
+    
+
+    <div>
+         <%= date_select :activity, :time_to, :default=> Date.today %>
+    </div>
+    
+    
+ </div>
+
+ 
+
+
+  <div class="field">
+    <%= form.label :detail %>
+    <%= form.text_area :detail, id: :activity_detail,class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks %>
+    <%= form.text_area :remarks, id: :activity_remarks,class: 'form-control' %>
+  </div>
+
+
+
+
+<% if  @activity.user.s_role? && current_user.ss_role? %>
+
+
+ 
+
+
+   <div class="field">
+    <%= form.label :supervisor_comment %>
+    <%= form.text_area :supervisor_comment, id: :activity_supervisor_comment,class: 'form-control' %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :sector_head_comment %>
+    <%= form.text_area :sector_head_comment, id: :activity_sector_head_comment,class: 'form-control', :disabled => true %>
+  </div>
+
+     <%elsif  @activity.user.s_role? &&  current_user.s_role?  %>
+
+        <div class="field">
+    <%= form.label :supervisor_comment %>
+    <%= form.text_area :supervisor_comment, id: :activity_supervisor_comment,class: 'form-control', :disabled => true %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :sector_head_comment %>
+    <%= form.text_area :sector_head_comment, id: :activity_sector_head_comment,class: 'form-control', :disabled => true %>
+  </div>
+
+
+   <%elsif  @activity.user.ss_role? && current_user.ss_role?  %>
+
+   <div class="field">
+    <%= form.label :sector_head_comment %>
+    <%= form.text_area :sector_head_comment, id: :activity_sector_head_comment,class: 'form-control', :disabled => true %>
+  </div>
+
+    <%elsif  @activity.user.ss_role? && current_user.su_role?  %>
+
+   <div class="field">
+    <%= form.label :sector_head_comment %>
+    <%= form.text_area :sector_head_comment, id: :activity_sector_head_comment,class: 'form-control' %>
+  </div>
+
+       <%elsif  @activity.user.s_role? && current_user.su_role?  %>
+
+        <div class="field">
+    <%= form.label :supervisor_comment %>
+    <%= form.text_area :supervisor_comment, id: :activity_supervisor_comment,class: 'form-control' , :disabled => true%>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :sector_head_comment %>
+    <%= form.text_area :sector_head_comment, id: :activity_sector_head_comment,class: 'form-control' %>
+  </div>
+
+  <% end %>
+
+
+  <div class="actions">
+    <%= form.submit %>
+
+
+    <%= link_to 'Show', @activity %> |
 <%= link_to 'Back', activities_path %>
+  </div>
+<% end %>
+
+</div>
