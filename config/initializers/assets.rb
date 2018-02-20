@@ -37,3 +37,11 @@ Rails.application.config.assets.precompile += %w( jquery.dataTables.js)
 
 
 
+
+
+
+
+
+
+
+

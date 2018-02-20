@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :reports
   resources :sectors
 
   get 'construction', to: 'themed_pages#construction'
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
   get 'approval-list', to: 'activities#approvals'
   get 'staff-approved-list', to: 'activities#staffapproved'
   get 'sector-approval-list', to: 'activities#sectorapprovals'
+
 
 
   resources :departments

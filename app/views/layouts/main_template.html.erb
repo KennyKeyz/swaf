@@ -12,6 +12,9 @@
 
     <%= stylesheet_link_tag    'main_template', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   </head>
 
   <body  class=" sticky-footer bg-white" id="page-top">
@@ -24,6 +27,8 @@
     <%= yield %>
 
     </div>
+
+         <%= debug(params) %>
 
     <footer class="sticky-footer">
       <div class="container">
@@ -49,6 +54,8 @@
      <%= javascript_include_tag( 'sb-admin-datatables.js' ) %>
  
       <%= javascript_include_tag( 'jquery.dataTables' ) %>
+
+
 
     
 

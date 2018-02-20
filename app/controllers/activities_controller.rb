@@ -9,11 +9,17 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.all
+
+    #@search = ActivitySearch.new(params[:search])
+   # @activities = @search.scope
+   #@activities = Activity.where('created_date BETWEEN ? AND ?',params[:time_from], params[:time_from]) 
+
+
     @user_activities = current_user.activities
      respond_to do |format|
       format.html
       format.pdf do
-        send_data generate_activities_report(@user_activities), filename: 'foo.pdf',
+        send_data generate_activities_report(@user_activities), filename: 'report.pdf',
                                                            type: 'application/pdf', 
                                                           disposition: 'attachment'
         end
@@ -27,6 +33,7 @@ class ActivitiesController < ApplicationController
 
   end  
 
+  
 
   def sectorapprovals
     @sectapprovals = Activity.where(user_id: User.where(sector_id: current_user.sector_id))
@@ -124,6 +131,10 @@ class ActivitiesController < ApplicationController
     def activity_params
       params.require(:activity).permit(:time_from, :time_to, :detail, :remarks, :supervisor_comment,:sector_head_comment)
     end
+
+    #def date_params
+    #  params.permit(:date_from, :date_to)
+    #end
 
 
 
