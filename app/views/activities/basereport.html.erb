@@ -1,0 +1,44 @@
+
+<div class="card card-login mx-auto mt-5">
+<div class="card-header">Staff Work Activity Form</div>
+<div class="card-body">
+
+
+<%= form_with(url: base_report_path) do |form| %>
+
+
+<%= form.label :date_from %>
+<%= form.text_field :date_from , :class => "form-control",id: 'dateFrom'%>
+
+
+<%= form.label :date_from %>
+<%= form.text_field :date_to , :class => "form-control",id: 'dateTo'%>
+
+
+
+
+<br/>
+<br/>
+
+
+
+<%= link_to base_report_path(format: 'pdf'),class: 'btn btn-lg btn btn-primary' do %> Print activities
+ <%end %>
+
+
+
+<%= form.submit 'Submit', class: 'submit'  %>
+
+
+
+
+
+
+
+<%end %>
+
+</div>
+</div>
+
+
+

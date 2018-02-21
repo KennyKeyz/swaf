@@ -68,9 +68,11 @@
            <% else %>
            <td>  <%=  activity.status %> </td>
 
-            <td><%= activity.created_at %></td>
+          
 
            <%end %>
+
+             <td><%= activity.created_at .strftime('%a, %d %b %Y %H:%M:%S')%></td>
 
       </tr>
 

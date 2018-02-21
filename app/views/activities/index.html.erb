@@ -51,14 +51,14 @@
               </tfoot>
                <tbody>
 
-                 <% current_user.activities.each do |activity| %>
+                 <% @activities.each do |activity| %>
                      <tr>
                         <td><%= activity.user.first_name %></td>
         <td><%= activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         <td><%= activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         <td><%= activity.detail %></td>
         <td><%= activity.remarks %></td>
-           <td><%= activity.created_at %></td>
+           <td><%= activity.created_at.strftime('%a, %d %b %Y %H:%M:%S') %></td>
 
         <td><%= link_to 'Show', activity %></td>
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>

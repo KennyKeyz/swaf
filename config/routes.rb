@@ -33,6 +33,13 @@ Rails.application.routes.draw do
   get 'staff-approved-list', to: 'activities#staffapproved'
   get 'sector-approval-list', to: 'activities#sectorapprovals'
 
+  
+
+  get 'base-report', to: 'activities#basereport'
+
+  post 'base-report', to: 'activities#basereport'
+  
+
 
 
   resources :departments

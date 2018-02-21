@@ -5,44 +5,81 @@ class ActivitiesController < ApplicationController
 
   layout "main_template"
 
+
+
+
+
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
+    @activities = Activity.where(user_id: current_user.id).order("created_at DESC")
 
     #@search = ActivitySearch.new(params[:search])
    # @activities = @search.scope
    #@activities = Activity.where('created_date BETWEEN ? AND ?',params[:time_from], params[:time_from]) 
-
-
-    @user_activities = current_user.activities
+     @user_activities = current_user.activities
      respond_to do |format|
-      format.html
-      format.pdf do
-        send_data generate_activities_report(@user_activities), filename: 'report.pdf',
-                                                           type: 'application/pdf', 
-                                                          disposition: 'attachment'
-        end
-    end
-  
+    format.html
+    format.pdf do
+send_data generate_activities_report(@user_activities), filename: 'report.pdf',
+type: 'application/pdf',
+disposition: 'attachment'
+end
+end
+
     #@activities = Activity.where(user_id: User.where(id: '8'))
+
   end
 
   def approvals
-    @approvals = Activity.where(user_id: User.where(department_id: current_user.department_id))
+    @approvals = Activity.where(user_id: User.where(department_id: current_user.department_id)).order("created_at DESC")
+
+
 
   end  
 
   
 
   def sectorapprovals
-    @sectapprovals = Activity.where(user_id: User.where(sector_id: current_user.sector_id))
+    @sectapprovals = Activity.where(user_id: User.where(sector_id: current_user.sector_id)).order("created_at DESC")
 
   end  
 
 
   def staffapproved
-    @staffapproved = Activity.where(user_id: current_user.id , status:"approved")
+    @staffapproved = Activity.where(user_id: current_user.id , status:"approved").order("created_at DESC")
+
+  end  
+
+  def basereport
+
+
+
+   
+
+     @start_date = Chronic.parse(params["date_from"])
+     @end_date = Chronic.parse(params["date_to"])
+
+     Rails.logger.debug "Here's the date *** from #{@start_date}"
+
+     Rails.logger.debug "Here's the date *** to #{@end_date}"
+
+     Rails.logger.debug ":) #{Date.today}"
+
+     @reportgen = Activity.where(created_at: @start_date..@end_date)
+     #@user_activities = current_user.activities
+     respond_to do |format|
+      format.html
+      format.pdf do
+        send_data generate_activities_report(@reportgen), filename: 'report.pdf',
+                                                          type: 'application/pdf',
+                                                disposition: 'attachment'
+           end
+     end
+
+
+
+
 
   end  
 
@@ -136,25 +173,24 @@ class ActivitiesController < ApplicationController
     #  params.permit(:date_from, :date_to)
     #end
 
-
-
     def generate_activities_report(activities)
-      report = Thinreports::Report.new layout: File.join(Rails.root, 'app', 'reports', 'activity', 'list.tlf')
+            report = Thinreports::Report.new layout: File.join(Rails.root, 'app', 'reports', 'activity', 'list.tlf')
 
-      activities.each do |activity|
-        report.list.add_row do |row|
-          row.values no: activity.id,
-                     staff: activity.user.first_name,
-                     department: activity.user.department.name,
-                     activity: activity.detail,
-                     remarks: activity.remarks,
-                     status: activity.status
-                     row.item(:status).style(:color, 'red') unless activity.approved?
-                     
-          end
-      end
+            activities.each do |activity|
+            report.list.add_row do |row|
+            row.values no: activity.id,
+            staff: activity.user.first_name,
+            department: activity.user.department.name,
+            activity: activity.detail,
+            remarks: activity.remarks,
+            status: activity.status
+            row.item(:status).style(:color, 'red') unless activity.approved?
 
-      report.generate
-    end
+            end
+            end
+
+            report.generate
+            end
+
 
 end

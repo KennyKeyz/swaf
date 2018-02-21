@@ -73,6 +73,8 @@
               <td><%= link_to 'add remark', edit_activity_path(activity) %></td>
 
            <%else %>
+
+           
               <td>  <%=  activity.status %> </td>
 
                 <td><i style="color:red"> **disabled**</i></td>
@@ -82,7 +84,7 @@
 
           
 
-            <td><%= activity.created_at %></td>
+            <td><%= activity.created_at.strftime('%a, %d %b %Y %H:%M:%S') %></td>
 
         
 
