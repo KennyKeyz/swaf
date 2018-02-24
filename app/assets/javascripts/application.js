@@ -88,10 +88,9 @@ $(function() {
 });
 
 */
+$(document).on('turbolinks:load', function(){
 
-
-
-jQuery(function(){
+	jQuery(function(){
    var value = 0;
    $("#postdate").on("click", function(event) {
    	event.preventDefault();
@@ -114,3 +113,7 @@ jQuery(function(){
 
     });
 });
+ 
+})
+
+
