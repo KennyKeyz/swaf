@@ -57,21 +57,30 @@ end
 
    
 
-     @start_date = Chronic.parse(params["date_from"])
-     @end_date = Chronic.parse(params["date_to"])
+     #@start_date = Chronic.parse(params["date_from"])
+     #@end_date = Chronic.parse(params["date_to"])
+    
+     @start_date = params["date_from"]
+     @end_date = params["date_to"]
+
+
+
+     @rtype = params["format"]
 
      Rails.logger.debug "Here's the date *** from #{@start_date}"
 
      Rails.logger.debug "Here's the date *** to #{@end_date}"
+     Rails.logger.debug "Here's the report type ***  #{@rtype}"
 
      Rails.logger.debug ":) #{Date.today}"
 
-     @reportgen = Activity.where(created_at: @start_date..@end_date)
+     @reportgen = Activity.where(created_at: params["date_from"]..params["date_to"])
      #@user_activities = current_user.activities
      respond_to do |format|
       format.html
       format.pdf do
-        send_data generate_activities_report(@reportgen), filename: 'report.pdf',
+
+    send_data generate_activities_report(@reportgen), filename: 'report.pdf',
                                                           type: 'application/pdf',
                                                 disposition: 'attachment'
            end

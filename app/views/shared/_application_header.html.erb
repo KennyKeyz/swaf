@@ -78,13 +78,27 @@ CT Work Activity Form
 <span class="nav-link-text">Staff Reports</span>
 </a>
 <ul class="sidenav-second-level collapse" id="staffreport">
+<% if current_user.su_role? %>
+<li>
+
+ <%= link_to base_report_path,class: 'nav-link' do %>
+ <i class="fa fa-fw fa-print"></i> Print all activities
+ <% end %>
+
+</li>
+
+<% end %>
+
 <li>
 
  <%= link_to activities_path(format: 'pdf'),class: 'nav-link' do %>
- <i class="fa fa-fw fa-print"></i> Print activities
+ <i class="fa fa-fw fa-print"></i> Print your activities
  <%end %>
 
 </li>
+
+
+
 
 
 

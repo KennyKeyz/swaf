@@ -56,6 +56,8 @@ gem 'jquery-rails'
 gem 'therubyracer', '~> 0.12.3'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
+
+
 gem 'devise', '~> 4.4', '>= 4.4.1'
 
 

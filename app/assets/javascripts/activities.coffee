@@ -3,12 +3,24 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-jQuery ->
- $('#dateFrom').datepicker
-   dateFormat: 'yy-mm-dd'
+ready = ->
+
+  jQuery ->
+    $('#dateFrom').datepicker
+      dateFormat: 'yy-mm-dd'
 
 
 
-jQuery ->
- $('#dateTo').datepicker
-   dateFormat: 'yy-mm-dd'   
+  jQuery ->
+    $('#dateTo').datepicker
+      dateFormat: 'yy-mm-dd' 
+
+$(document).ready(ready)
+$(document).on('turbolinks:load', ready)
+ 
+
+  
+
+
+
+ 
