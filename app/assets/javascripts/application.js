@@ -93,7 +93,7 @@ $(function() {
 
 jQuery(function(){
    var value = 0;
-   $("a#postdate").on("click", function(event) {
+   $("#postdate").on("click", function(event) {
    	event.preventDefault();
       
       // value = $("#dateFrom").val();
