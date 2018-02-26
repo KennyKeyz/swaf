@@ -105,7 +105,7 @@ Rails.application.configure do
     :domain => 'activityform.herokuapp.com' 
   }
 
-  #config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
+  config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
  
 end
 
