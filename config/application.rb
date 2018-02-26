@@ -26,6 +26,12 @@ module Swaf
     # -- all .rb files in that directory are automatically loaded.
 
     # Don't generate system test files.
+
+
+    config.eager_load_paths << "#{Rails.root}/lib"
+    #config.secret_key_base = ENV["SECRET_KEY_BASE"]
+
+
     config.generators.system_tests = nil
   end
 end

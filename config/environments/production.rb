@@ -96,16 +96,16 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.mandrillapp.com",
-   :port                 => 25,
-   :user_name            => "kenny.selorm@gmail.com",
-   :password             => "e916982288c17cc967a9c25a9b37d450-us17",
-   :authentication       => "login",
-   :enable_starttls_auto => true,
-   :domain => 'activityform.herokuapp.com',
+    :address   => "smtp.mandrillapp.com",
+    :port      => 25,
+    :enable_starttls_auto => true,
+    :user_name => ENV["MANDRILL_USERNAME"],
+    :password  => ENV["MANDRILL_API_KEY"],
+    :authentication => 'login',
+    :domain => 'activityform.herokuapp.com' 
   }
 
-  config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
+  #config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
  
 end
 

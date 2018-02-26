@@ -78,6 +78,8 @@ gem 'thinreports-rails', '~> 0.4.0'
 
 gem 'chronic', '~> 0.10.2'
 
+gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
+
 
 
 
