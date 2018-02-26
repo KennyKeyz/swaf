@@ -101,11 +101,10 @@ Rails.application.configure do
    :user_name            => "candidkenny",
    :password             => "Kenneth$el0rm",
    :authentication       => "plain",
-   :enable_starttls_auto => true,
-   :domain => 'http://activityform.herokuapp.com'
+   :enable_starttls_auto => true
   }
 
-   #config.action_mailer.default_url_options = { host: 'http://activityform.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
  
 end
 
