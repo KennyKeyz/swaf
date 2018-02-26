@@ -101,7 +101,8 @@ Rails.application.configure do
    :user_name            => "candidkenny",
    :password             => "e916982288c17cc967a9c25a9b37d450-us17",
    :authentication       => "login",
-   :enable_starttls_auto => true
+   :enable_starttls_auto => true,
+   :domain => 'activityform.herokuapp.com',
   }
 
   config.action_mailer.default_url_options = { :host => ENV['MAILER_URL'] }
