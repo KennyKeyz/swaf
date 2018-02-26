@@ -100,7 +100,7 @@ Rails.application.configure do
    :port                 => 587,
    :user_name            => "candidkenny",
    :password             => "Kenneth$el0rm",
-   :authentication       => "plain",
+   :authentication       => "login",
    :enable_starttls_auto => true
   }
 
