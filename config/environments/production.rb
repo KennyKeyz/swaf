@@ -96,12 +96,12 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    :address   => "smtp.mandrillapp.com",
+    :address   => "smtp.sendgrid.net",
     :port      => 587,
     :enable_starttls_auto => true,
-    :user_name => ENV["MANDRILL_USERNAME"],
-    :password  => ENV["MANDRILL_API_KEY"],
-    :authentication => 'login',
+    :user_name => ENV["SENDGRID_USERNAME"],
+    :password  => ENV["SENDGRID_PASSWORD"],
+    :authentication => 'plain',
     :domain => 'activityform.herokuapp.com' 
   }
 
