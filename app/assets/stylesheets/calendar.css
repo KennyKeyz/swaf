@@ -1,4 +1,8 @@
 
+.showtime{
+    color : #f47041;
+    text-align: center;
+}
 
 .calendar, .calendar_weekdays, .calendar_content {
     max-width: 300px;
