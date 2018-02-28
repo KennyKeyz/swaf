@@ -25,6 +25,8 @@ Rails.application.config.assets.precompile += %w( sb-admin-datatables.js)
 
 Rails.application.config.assets.precompile += %w( jquery.dataTables.js)
 
+Rails.application.config.assets.precompile += %w( calendar.js)
+
 
 
 

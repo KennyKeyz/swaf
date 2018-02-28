@@ -16,7 +16,7 @@
 //= require sb-admin
 
 //= require sb-admin-datatables
-
+//= require calendar
 
 //= require jquery.dataTables
 
