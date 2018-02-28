@@ -24,8 +24,8 @@
                    <th>Show </th>
                     
                       
+                         <th> status </th>
                          <th>Approval </th>
-                         <th>Add remark </th>
                            
                   <th>Date Created </th>
                   
@@ -43,8 +43,8 @@
                    <th>Show </th>
                      
                      
+                         <th>status </th>
                          <th>Approval </th>
-                         <th>Add remark </th>
                           <th>Date Created </th>
                 
                 </tr>
@@ -64,18 +64,19 @@
         <td><%= link_to 'Show', activity %></td>
       
        
-          
+           <td>  <%=  activity.status %> </td>
 
           <%if activity.user.s_role?%>
 
-                <td><%= link_to activity.status, toggle_status_activity_path(activity) %></td>
+             
 
-              <td><%= link_to 'add remark', edit_activity_path(activity) %></td>
+
+              <td><%= link_to 'Approval', edit_activity_path(activity) %></td>
 
            <%else %>
 
            
-              <td>  <%=  activity.status %> </td>
+           
 
                 <td><i style="color:red"> **disabled**</i></td>
 

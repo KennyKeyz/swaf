@@ -20,9 +20,7 @@
                   <th>Time to </th>
                   <th>Activity</th>
                     <th>Remarks</th>
-                   <th>Show </th>
-                     <th>Edit </th>
-                       <th>Delete </th>
+                   
                          <th>Approved? </th>
                            
                   <th>Date Created </th>
@@ -38,9 +36,7 @@
                   <th>Activity</th>
                   <th>Remarks</th>
                  
-                   <th>Show </th>
-                     <th>Edit </th>
-                       <th>Delete </th>
+                  
                          <th>Approved? </th>
                           <th>Date Created </th>
                 
@@ -57,20 +53,14 @@
         <td><%= activity.remarks %></td>
          
 
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
+
           
-
-          <%if current_user.su_role? || current_user.ss_role? %>
-
-           <td><%= link_to activity.status, toggle_status_activity_path(activity) %></td>
-           <% else %>
            <td>  <%=  activity.status %> </td>
 
           
 
-           <%end %>
+       
 
              <td><%= activity.created_at .strftime('%a, %d %b %Y %H:%M:%S')%></td>
 

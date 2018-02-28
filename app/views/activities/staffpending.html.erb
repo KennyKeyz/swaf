@@ -16,15 +16,12 @@
               <thead>
                 <tr>
                   <th>Staff Name</th>
-                   <th>Department</th>
                   <th>Time from</th>
                   <th>Time to </th>
                   <th>Activity</th>
-                  <th>Remarks</th>
-                   <th>Show </th>
-                     <<th>Approval </th>
-                    
-                         <th>status </th>
+                    <th>Remarks</th>
+                   
+                         <th>Approved? </th>
                            
                   <th>Date Created </th>
                   
@@ -33,46 +30,39 @@
               <tfoot>
                 <tr>
                 <th>Staff Name</th>
-                   <th>Department</th>
+
                     <th>Time from</th>
                   <th>Time to </th>
                   <th>Activity</th>
                   <th>Remarks</th>
                  
-                   <th>Show </th>
-                     <th>Approval </th>
-                    
-                         <th>status </th>
+                  
+                         <th>Approved? </th>
                           <th>Date Created </th>
                 
                 </tr>
               </tfoot>
                <tbody>
 
-                 <% @sectapprovals.each do |activity| %>
+                 <% @staffpending.each do |activity| %>
                      <tr>
        <td><%= activity.user.first_name %></td>
-        <td><%= activity.user.department.name %></td>
         <td><%= activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         <td><%= activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         <td><%= activity.detail %></td>
         <td><%= activity.remarks %></td>
          
 
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'add remark', edit_activity_path(activity) %></td>
-        
+      
+
           
-
- 
-
-
-
            <td>  <%=  activity.status %> </td>
 
-            
+          
 
-           <td><%= activity.created_at.strftime('%a, %d %b %Y %H:%M:%S') %></td>
+       
+
+             <td><%= activity.created_at .strftime('%a, %d %b %Y %H:%M:%S')%></td>
 
       </tr>
 

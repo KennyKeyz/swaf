@@ -31,7 +31,10 @@ Rails.application.routes.draw do
 
   get 'approval-list', to: 'activities#approvals'
   get 'staff-approved-list', to: 'activities#staffapproved'
+  get 'staff-rejected-list', to: 'activities#staffrejected'
+  get 'staff-pending-list', to: 'activities#staffpending'
   get 'sector-approval-list', to: 'activities#sectorapprovals'
+
 
   
 

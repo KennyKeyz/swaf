@@ -31,7 +31,7 @@ CT Work Activity Form
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Create Activity">
 
      <%= link_to new_activity_path,class: 'nav-link' do %>
-      <i class="fa fa-fw fa-dashboard"></i> Create Activity
+      <i class="fa fa-fw fa-dashboard"></i> New Activity
       <% end %>
 
       </li>
@@ -49,6 +49,23 @@ CT Work Activity Form
 
      <%= link_to staff_approved_list_path,class: 'nav-link' do %>
       <i class="fa fa-check-circle"></i> Approved Activities
+      <% end %>
+
+      </li>
+
+
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pending Activities">
+
+     <%= link_to staff_pending_list_path,class: 'nav-link' do %>
+      <i class="fa fa-hourglass-start"></i> Pending Activities
+      <% end %>
+
+      </li>
+
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Rejected Activities">
+
+     <%= link_to staff_rejected_list_path,class: 'nav-link' do %>
+      <i class="fa fa-times"></i> Rejected Activities
       <% end %>
 
       </li>

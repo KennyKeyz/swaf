@@ -26,7 +26,7 @@
                    <th>Show </th>
                      <th>Edit </th>
                        <th>Delete </th>
-                         <th>Approval </th>
+                         <th>Approval status </th>
                           <th>Supervisor comment </th>
                            <th>Sector Head's comment </th>
                   
@@ -43,7 +43,7 @@
                    <th>Show </th>
                      <th>Edit </th>
                        <th>Delete </th>
-                         <th>Approval </th>
+                         <th>Approval status</th>
                          <th>Supervisor comment </th>
                            <th>Sector Head's comment </th>
                 
@@ -65,12 +65,9 @@
         <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           
 
-          <%if current_user.su_role? || current_user.ss_role? %>
-
-           <td><%= link_to activity.status, toggle_status_activity_path(activity) %></td>
-           <% else %>
+         
            <td>  <%=  activity.status %> </td>
-           <%end %>
+         
 
             <td>  <%=  activity.supervisor_comment %> </td>
 

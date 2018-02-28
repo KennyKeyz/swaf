@@ -14,9 +14,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.where(user_id: current_user.id).order("created_at DESC")
 
-    #@search = ActivitySearch.new(params[:search])
-   # @activities = @search.scope
-   #@activities = Activity.where('created_date BETWEEN ? AND ?',params[:time_from], params[:time_from]) 
+
      @user_activities = current_user.activities
      respond_to do |format|
     format.html
@@ -50,6 +48,17 @@ end
     @staffapproved = Activity.where(user_id: current_user.id , status:"approved").order("created_at DESC")
 
   end  
+
+
+  def staffrejected
+    @staffrejected = Activity.where(user_id: current_user.id , status:"rejected").order("created_at DESC")
+
+  end  
+
+   def staffpending
+    @staffpending = Activity.where(user_id: current_user.id , status:"pending").order("created_at DESC")
+
+  end 
 
   def basereport
 
@@ -175,7 +184,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:time_from, :time_to, :detail, :remarks, :supervisor_comment,:sector_head_comment)
+      params.require(:activity).permit(:time_from, :time_to, :detail, :remarks, :supervisor_comment,:sector_head_comment, :status)
     end
 
     #def date_params
