@@ -35,12 +35,12 @@
   <%= @activity.sector_head_comment %>
 </p>
 
-<% if current_user.s_role? %>
+
 <p>
   <strong>Supervisor's remarks:</strong>
   <%= @activity.supervisor_comment %>
 </p>
-<% end %>
+
 <p>
   <strong>Approval status:</strong>
   <%= @activity.status %>
