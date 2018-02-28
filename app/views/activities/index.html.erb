@@ -7,7 +7,21 @@
  <br/>
  <br/>
 
+      <% if @activities.empty? %>
 
+       <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Staff Work Activity </div>
+        <div class="card-body">
+                    <h1> No activities created </h1>
+
+                  </div>
+                  
+                  </div>
+                  </div>  
+
+                 
+               <% else %>
 
       <div class="card mb-3">
         <div class="card-header">
@@ -51,6 +65,8 @@
               </tfoot>
                <tbody>
 
+         
+
                  <% @activities.each do |activity| %>
                      <tr>
        <td><%= activity.user.first_name %></td>
@@ -75,8 +91,8 @@
 
       </tr>
 
-   <% end %>
-
+                <% end %>
+           
 
             
              </tbody>
@@ -91,7 +107,7 @@
 
 
 
-
+  <% end %>
 
 
 

@@ -6,7 +6,21 @@
  <!-- Example DataTables Card-->
  <br/>
  <br/>
+<% if @staffpending.empty? %>
 
+       <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Staff Work Activity </div>
+        <div class="card-body">
+                    <h1> No pending activities </h1>
+
+                  </div>
+                  
+                  </div>
+                  </div>  
+
+                 
+               <% else %>
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Staff Work Activity</div>
@@ -83,7 +97,7 @@
 
 
 
-
+<% end %>
 
 
 

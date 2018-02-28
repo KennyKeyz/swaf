@@ -7,6 +7,22 @@
  <br/>
  <br/>
 
+  <% if @sectapprovals.empty? %>
+
+       <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Staff Work Activity </div>
+        <div class="card-body">
+                    <h1> No activities to approve </h1>
+
+                  </div>
+                  
+                  </div>
+                  </div>  
+
+                 
+               <% else %>
+
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Staff Work Activity</div>
@@ -92,7 +108,7 @@
 
 
 
-
+<% end %>
 
 
 
