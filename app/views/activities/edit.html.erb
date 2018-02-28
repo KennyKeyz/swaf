@@ -8,7 +8,7 @@
 
 
 <%= form_with(model: @activity, local: true) do |form| %>
-
+<% if  current_user == @activity.user %>
  <div class="form-group">
 
 
@@ -53,7 +53,7 @@
     <%= form.text_area :remarks, id: :activity_remarks,class: 'form-control' %>
   </div>
 
-
+<% end %>
 
 
 <% if  @activity.user.s_role? && current_user.ss_role? %>
