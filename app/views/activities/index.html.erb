@@ -32,34 +32,31 @@
               <thead>
                 <tr>
                 <th>Staff Name</th>
-                <th>Time from</th>
-                <th>Time to </th>
+               
                 <th>Activity</th>
                 <th>Remarks</th>
                
-                <th>Show </th>
+                <th>Detail </th>
                 <th>Edit </th>
                 <th>Delete </th>
                 <th>Approval status </th>
-                  <th>Supervisor comment </th>
-                    <th>Sector Head's comment </th>
+                  <th> Date Created </th>
                   
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                 <th>Staff Name</th>
-                    <th>Time from</th>
-                  <th>Time to </th>
+                    
                   <th>Activity</th>
                   <th>Remarks</th>
                  
-                   <th>Show </th>
+                   <th>Detail </th>
                      <th>Edit </th>
                        <th>Delete </th>
                          <th>Approval status</th>
-                         <th>Supervisor comment </th>
-                           <th>Sector Head's comment </th>
+                         
+                           <th> Date Created </th>
                 
                 </tr>
               </tfoot>
@@ -70,13 +67,13 @@
                  <% @activities.each do |activity| %>
                      <tr>
        <td><%= activity.user.first_name %> <%= activity.user.last_name %></td>
-        <td><%= activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %></td>
-        <td><%= activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %></td>
+      
+  
         <td><%= activity.detail %></td>
         <td><%= activity.remarks %></td>
         
 
-        <td><%= link_to 'Show', activity %></td>
+        <td><%= link_to 'View', activity %></td>
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
         <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           
@@ -85,9 +82,9 @@
            <td>  <%=  activity.status %> </td>
          
 
-            <td>  <%=  activity.supervisor_comment %> </td>
+            
 
-            <td>  <%=  activity.sector_head_comment %> </td>
+              <td><%= activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %></td>
 
       </tr>
 

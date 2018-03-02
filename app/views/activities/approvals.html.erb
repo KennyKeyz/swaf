@@ -33,17 +33,19 @@
                 <tr>
                   <th>Staff Name</th>
                    <th>Department</th>
-                  <th>Time from</th>
-                  <th>Time to </th>
-                  <th>Activity</th>
+                   <th>Activity</th>
+                    <th>Detail </th>
+                    <th>Approval </th>
+                 
+                  
                   <th>Remarks</th>
-                   <th>Show </th>
+                  
                     
                       
                          <th> status </th>
-                         <th>Approval </th>
+                         
                            
-               
+                <th>Date Created</th>
                   
                 </tr>
               </thead>
@@ -51,17 +53,19 @@
                 <tr>
                 <th>Staff Name</th>
                    <th>Department</th>
-                    <th>Time from</th>
-                  <th>Time to </th>
-                  <th>Activity</th>
+                      <th>Activity</th>
+                   <th>Detail </th>
+                    <th>Approval </th>
+                    
+               
                   <th>Remarks</th>
                  
-                   <th>Show </th>
+                  
                      
                      
                          <th>status </th>
-                         <th>Approval </th>
-                        
+                         
+                         <th>Date Created</th>
                 
                 </tr>
               </tfoot>
@@ -71,23 +75,18 @@
                      <tr>
        <td><%= activity.user.first_name %> <%= activity.user.last_name %></td>
         <td><%= activity.user.department.name %></td>
-        <td><%= activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %></td>
-        <td><%= activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %></td>
+
         <td><%= activity.detail %></td>
-        <td><%= activity.remarks %></td>
-         
 
-        <td><%= link_to 'Show', activity %></td>
-      
-       
-           <td>  <%=  activity.status %> </td>
+        <td><%= link_to 'View', activity %></td>
 
-          <%if activity.user.s_role?%>
+           
+      <%if activity.user.s_role?%>
 
              
+   <td><%= link_to 'Approval', edit_activity_path(activity) %></td>
 
-
-              <td><%= link_to 'Approval', edit_activity_path(activity) %></td>
+           
 
            <%else %>
 
@@ -96,7 +95,22 @@
 
                 <td><i style="color:red"> **disabled**</i></td>
 
-           <%end %>
+                     <%end %>
+       
+        <td><%= activity.remarks %></td>
+         
+
+        
+      
+       
+           <td>  <%=  activity.status %> </td>
+             <td><%= activity.created_at.strftime('%a, %d %b %Y %H:%M:%S') %></td>
+
+
+
+          
+
+      
 
 
           

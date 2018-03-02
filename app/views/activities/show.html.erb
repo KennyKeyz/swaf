@@ -9,6 +9,17 @@
           <i class="fa fa-eye"></i> Activity </div>
         <div class="card-body">
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @activity.user.first_name %> <%= @activity.user.last_name %>
+</p>
+
+
+<p>
+  <strong>Department:</strong>
+  <%= @activity.user.department.name %> 
+</p>
+
 
 <p>
   <strong>Time from:</strong>
@@ -19,6 +30,8 @@
   <strong>Time to:</strong>
   <%= @activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %>
 </p>
+
+
 
 <p>
   <strong>Detail:</strong>

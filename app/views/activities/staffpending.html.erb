@@ -30,12 +30,12 @@
               <thead>
                 <tr>
                   <th>Staff Name</th>
-                  <th>Time from</th>
-                  <th>Time to </th>
+                  
                   <th>Activity</th>
                     <th>Remarks</th>
                    
                          <th>Status </th>
+                          <th>Detail </th>
                            
                
                   
@@ -45,13 +45,13 @@
                 <tr>
                 <th>Staff Name</th>
 
-                    <th>Time from</th>
-                  <th>Time to </th>
+                    
                   <th>Activity</th>
                   <th>Remarks</th>
                  
                   
                          <th>Status </th>
+                          <th>Detail </th>
                      
                 
                 </tr>
@@ -61,8 +61,7 @@
                  <% @staffpending.each do |activity| %>
                      <tr>
        <td><%= activity.user.first_name %> <%= activity.user.last_name %></td>
-        <td><%= activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %></td>
-        <td><%= activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %></td>
+        
         <td><%= activity.detail %></td>
         <td><%= activity.remarks %></td>
          
@@ -71,6 +70,8 @@
 
           
            <td>  <%=  activity.status %> </td>
+
+            <td><%= link_to 'View', activity %></td>
 
           
 
