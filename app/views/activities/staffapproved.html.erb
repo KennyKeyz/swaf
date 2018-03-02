@@ -17,7 +17,7 @@
                   </div>
                   
                   </div>
-                  </div>  
+                
 
                  
                <% else %>
@@ -26,7 +26,7 @@
           <i class="fa fa-table"></i> Staff Work Activity</div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table cclass="table table-striped table-bordered dt-responsive nowrap" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>Staff Name</th>
@@ -35,9 +35,9 @@
                   <th>Activity</th>
                     <th>Remarks</th>
                    
-                         <th>Approved? </th>
+                         <th>Status </th>
                            
-                  <th>Date Created </th>
+                  
                   
                 </tr>
               </thead>
@@ -51,8 +51,8 @@
                   <th>Remarks</th>
                  
                   
-                         <th>Approved? </th>
-                          <th>Date Created </th>
+                         <th>Status </th>
+                       
                 
                 </tr>
               </tfoot>
@@ -60,7 +60,7 @@
 
                  <% @staffapproved.each do |activity| %>
                      <tr>
-       <td><%= activity.user.first_name %></td>
+       <td><%= activity.user.first_name %> <%= activity.user.last_name %></td>
         <td><%= activity.time_from.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         <td><%= activity.time_to.strftime('%a, %d %b %Y %H:%M:%S') %></td>
         <td><%= activity.detail %></td>
@@ -76,7 +76,6 @@
 
        
 
-             <td><%= activity.created_at .strftime('%a, %d %b %Y %H:%M:%S')%></td>
 
       </tr>
 
