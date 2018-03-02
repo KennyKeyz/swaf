@@ -1,8 +1,8 @@
+ <br/>
+ <br/>
 
+ <div class="container">
 
-
-    <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Staff Work Activity Form</div>
       <div class="card-body">
 
 
@@ -28,7 +28,7 @@
      <div class="form-group">
 
 
- <%= form.label :time_from %>
+ <%= form.label :From %>
     <div> 
            <%= time_select :activity, :time_from, {:default => {:hour => '00', :minute => '00'}} %>
     </div>
@@ -43,7 +43,7 @@
 
 
      <div class="form-group">
-    <%= form.label :time_to %>
+    <%= form.label :To %>
     <div> 
            <%= time_select :activity, :time_to, {:default => {:hour => '00', :minute => '00'}} %>
     </div>
@@ -59,12 +59,12 @@
  
 
 
-  <div class="field">
+<div class="form-group">
     <%= form.label :detail %>
     <%= form.text_area :detail, id: :activity_detail,class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :remarks %>
     <%= form.text_area :remarks, id: :activity_remarks,class: 'form-control' %>
   </div>
@@ -75,7 +75,7 @@
 <% if  current_user.su_role? %>
 
 
-    <div class="field">
+  <div class="form-group">
     <%= form.label :sector_head_comment %>
     <%= form.text_area :sector_head_comment, id: :activity_sector_head_comment,class: 'form-control' %>
   </div>
@@ -88,7 +88,7 @@
 
    <%elsif  current_user.ss_role?  %>
 
- <div class="field">
+<div class="form-group">
     <%= form.label :supervisor_comment %>
     <%= form.text_area :supervisor_comment, id: :activity_supervisor_comment,class: 'form-control' %>
   </div>
@@ -98,7 +98,7 @@
 
 
 
-  <div class="actions">
+<div class="form-group">
     <%= form.submit %>
   </div>
 <% end %>
@@ -107,4 +107,3 @@
 </div>
 
 </div>
-

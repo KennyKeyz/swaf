@@ -121,6 +121,8 @@ end
     @activity = Activity.new(activity_params)
     @activity.user = current_user
 
+    
+
     respond_to do |format|
       if @activity.save
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
