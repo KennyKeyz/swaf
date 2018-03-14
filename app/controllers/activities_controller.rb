@@ -30,7 +30,7 @@ end
   end
 
   def approvals
-    @approvals = Activity.where(user_id: User.where(department_id: current_user.department_id)).order("created_at DESC")
+    @approvals = Activity.where(user_id: User.where(department_id: current_user.department_id,s_role: true)).order("created_at DESC")
 
 
 
@@ -39,7 +39,7 @@ end
   
 
   def sectorapprovals
-    @sectapprovals = Activity.where(user_id: User.where(sector_id: current_user.sector_id)).order("created_at DESC")
+    @sectapprovals = Activity.where(user_id: User.where(sector_id: current_user.sector_id,su_role:false)).order("created_at DESC")
 
   end  
 
@@ -162,11 +162,24 @@ end
 
   def toggle_status
 
-    if @activity.pending?
+    foo = params[:foo_param]
+=begin
+    if @activity.rejected?
       @activity.approved!
     elsif @activity.approved?
-      @activity.pending!
-    end    
+      @activity.rejected!
+    elsif 'ken'
+      @activity.approved!  
+    end  
+=end       
+    if foo == 'approved'
+      @activity.approved!
+    elsif foo == 'rejected'
+      @activity.rejected!
+    elsif foo == 'pending'
+      @activity.pending!  
+    end  
+
 
     #redirect_to activities_url
     if current_user.ss_role?

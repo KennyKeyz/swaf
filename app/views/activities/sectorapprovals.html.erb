@@ -38,10 +38,12 @@
                   <th>Activity</th>
                  
                    <th>Detail </th>
-                     <<th>Approval </th>
+                     <<th>Add Comment </th>
                     
-                         <th>status </th>
-                         <th> date created </th>
+                         <th>Status </th>
+
+                          <th>Actions </th>
+                         <th> Date Created </th>
                            
                  
                   
@@ -56,10 +58,12 @@
                  
                  
                    <th>Detail </th>
-                     <th>Approval </th>
+                     <th>Add Comment </th>
                     
-                         <th>status </th>
-                         <th> date created </th>
+                         <th>Status </th>
+
+                          <th>Actions </th>
+                         <th> Date Created </th>
                           
                 
                 </tr>
@@ -76,7 +80,7 @@
          
 
         <td><%= link_to 'View', activity %></td>
-        <td><%= link_to 'approval', edit_activity_path(activity) %></td>
+        <td><%= link_to 'comment', edit_activity_path(activity) %></td>
         
           
 
@@ -85,6 +89,30 @@
 
 
            <td>  <%=  activity.status %> </td>
+
+           <td>
+
+            
+
+                          <%= link_to toggle_status_activity_path(activity,foo_param: 'approved'),class: 'btn btn-sm' do %>
+<i class="fa fa-check-circle" style="color:green"></i> 
+<%end %>
+
+
+              |
+                         <%= link_to toggle_status_activity_path(activity,foo_param: 'rejected'),class: 'btn btn-sm' do %>
+<i class="fa fa-times" style="color:red"></i> 
+<%end %>
+              |
+                          <%= link_to toggle_status_activity_path(activity,foo_param: 'pending'),class: 'btn btn-sm' do %>
+<i class="fa fa-hourglass-start"></i> 
+<%end %>
+
+
+
+
+
+          </td>
 
                 <td><%= activity.created_at.strftime('%a, %d %b %Y %H:%M:%S') %></td>
 

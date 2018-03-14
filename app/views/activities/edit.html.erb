@@ -142,7 +142,15 @@
 
 
     <%= link_to 'Show', @activity %> |
-<%= link_to 'Dashboard', user_dashboard_path %>
+<%= link_to 'Dashboard', user_dashboard_path %> |
+
+<% if current_user.ss_role? %>
+<%= link_to 'Back', approval_list_path %>
+<%elsif current_user.su_role? %>
+<%= link_to 'Back', sector_approval_list_path %>
+
+
+<%end%>
 
   </div>
 <% end %>
