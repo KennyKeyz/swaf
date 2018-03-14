@@ -60,9 +60,17 @@
 </p>
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Dashboard', user_dashboard_path %> 
+<%= link_to 'Dashboard', user_dashboard_path %> |
+
+<%= link_to 'Your activities', activities_path %>  |
 
 
+<% if current_user.ss_role? %>
+<%= link_to 'Approvals', approval_list_path %>
+<%elsif current_user.su_role? %>
+<%= link_to 'Approvals', sector_approval_list_path %> 
+
+<%end%>
 
 </div>
 </div>

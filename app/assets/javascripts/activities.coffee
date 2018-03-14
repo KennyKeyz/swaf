@@ -15,12 +15,11 @@ ready = ->
     $('#dateTo').datepicker
       dateFormat: 'yy-mm-dd' 
 
+
+
+
+
 $(document).ready(ready)
 $(document).on('turbolinks:load', ready)
  
 
-  
-
-
-
- 
