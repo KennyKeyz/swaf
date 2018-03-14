@@ -38,11 +38,13 @@
                   <th>Activity</th>
                  
                    <th>Detail </th>
+
+                   <th>Actions </th>
                      <<th>Add Comment </th>
                     
                          <th>Status </th>
 
-                          <th>Actions </th>
+                          
                          <th> Date Created </th>
                            
                  
@@ -58,11 +60,13 @@
                  
                  
                    <th>Detail </th>
+
+                   <th>Actions </th>
                      <th>Add Comment </th>
                     
                          <th>Status </th>
 
-                          <th>Actions </th>
+                          
                          <th> Date Created </th>
                           
                 
@@ -80,17 +84,8 @@
          
 
         <td><%= link_to 'View', activity %></td>
-        <td><%= link_to 'comment', edit_activity_path(activity) %></td>
-        
-          
 
- 
-
-
-
-           <td>  <%=  activity.status %> </td>
-
-           <td>
+                   <td>
 
             
 
@@ -113,6 +108,17 @@
 
 
           </td>
+        <td><%= link_to 'comment', edit_activity_path(activity) %></td>
+        
+          
+
+ 
+
+
+
+           <td>  <%=  activity.status %> </td>
+
+
 
                 <td><%= activity.created_at.strftime('%a, %d %b %Y %H:%M:%S') %></td>
 
