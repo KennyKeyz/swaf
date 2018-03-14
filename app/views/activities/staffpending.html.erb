@@ -36,6 +36,8 @@
                    
                          <th>Status </th>
                           <th>Detail </th>
+
+                           <th>Date </th>
                            
                
                   
@@ -52,6 +54,8 @@
                   
                          <th>Status </th>
                           <th>Detail </th>
+
+                           <th>Date </th>
                      
                 
                 </tr>
@@ -72,7 +76,7 @@
            <td>  <%=  activity.status %> </td>
 
             <td><%= link_to 'View', activity %></td>
-
+            <td><%= activity.created_at.strftime('%a, %d %b %Y %H:%M:%S') %></td>
           
 
        
