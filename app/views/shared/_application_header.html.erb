@@ -30,8 +30,8 @@ CT Work Activity Form
        
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Create Activity">
 
-     <%= link_to new_activity_path,class: 'nav-link' do %>
-      <i class="fa fa-fw fa-dashboard"></i> New Activity
+     <%= link_to user_dashboard_path,class: 'nav-link' do %>
+      <i class="fa fa-fw fa-dashboard"></i> Dashboard
       <% end %>
 
       </li>
@@ -53,7 +53,11 @@ CT Work Activity Form
 <span class="nav-link-text">Activities</span>
 </a>
 <ul class="sidenav-second-level collapse" id="activities">
-
+<li> 
+ <%= link_to new_activity_path,class: 'nav-link' do %>
+      <i class="fa fa-fw fa-plus-circle"></i> New Activity
+      <% end %>
+</li>
 
 
 <li> 
@@ -88,29 +92,71 @@ CT Work Activity Form
 
 
 </li>
+<% if current_user.ss_role? %>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+<i class="fa fa-fw fa-sitemap"></i>
+<span class="nav-link-text">Admin Functions</span>
+</a>
+<ul class="sidenav-second-level collapse" id="collapseMulti">
+<li>
+<%= link_to approval_list_path,class: 'nav-link' do %>
+<i class="fa fa-fw fa-eye"></i> View 
+<%end %>
+
+</li>
 
 
-           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Contact IT">
 
-     <%= link_to contact_path,class: 'nav-link' do %>
-      <i class="fa fa-phone"></i> Contact IT
-      <% end %>
+</ul>
 
-      </li>
-     
 
-           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="About">
+</li>
 
-     <%= link_to about_path,class: 'nav-link' do %>
-      <i class="fa fa-info-circle"></i> About
-      <% end %>
+<% elsif current_user.su_role? %>
 
-      </li>
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+<i class="fa fa-fw fa-sitemap"></i>
+<span class="nav-link-text">Sector Head Functions</span>
+</a>
+<ul class="sidenav-second-level collapse" id="collapseMulti">
+<li>
+<%= link_to sector_approval_list_path,class: 'nav-link' do %>
+<i class="fa fa-fw fa-eye"></i> View 
+<%end %>
 
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+</li>
+
+
+
+</ul>
+
+
+</li>
+
+<% else %>
+
+
+
+<%end %>
+
+         
+
+              
+
+
+
+
+
+        <% end %>
+
+
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#staffreport" data-parent="#exampleAccordion">
 <i class="fa fa-fw fa-book"></i>
-<span class="nav-link-text">Staff Reports</span>
+<span class="nav-link-text"> Reports</span>
 </a>
 <ul class="sidenav-second-level collapse" id="staffreport">
 <% if current_user.su_role? %>
@@ -143,69 +189,30 @@ CT Work Activity Form
 </li>
 
 
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Contact">
 
+     <%= link_to contact_path,class: 'nav-link' do %>
+      <i class="fa fa-phone"></i> Contact IT
+      <% end %>
 
+      </li>
+     
 
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="About">
 
-<% if current_user.ss_role? %>
+     <%= link_to about_path,class: 'nav-link' do %>
+      <i class="fa fa-info-circle"></i> About
+      <% end %>
 
-<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-<i class="fa fa-fw fa-sitemap"></i>
-<span class="nav-link-text">Admin Functions</span>
-</a>
-<ul class="sidenav-second-level collapse" id="collapseMulti">
-<li>
-<%= link_to approval_list_path,class: 'nav-link' do %>
-<i class="fa fa-fw fa-eye"></i> View Approvals
-<%end %>
+      </li>
 
-</li>
-
-
-
-</ul>
-
-
-</li>
-
-<% elsif current_user.su_role? %>
-
-<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-<i class="fa fa-fw fa-sitemap"></i>
-<span class="nav-link-text">Sector Head Functions</span>
-</a>
-<ul class="sidenav-second-level collapse" id="collapseMulti">
-<li>
-<%= link_to sector_approval_list_path,class: 'nav-link' do %>
-<i class="fa fa-fw fa-eye"></i> View Approvals
-<%end %>
-
-</li>
-
-
-
-</ul>
-
-
-</li>
-
-<% else %>
-
-
-
-<%end %>
-
-         
-
-              
+     
 
 
 
 
 
-        <% end %>
+
 
 
 
