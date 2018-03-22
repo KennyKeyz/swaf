@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   get 'base-report', to: 'activities#basereport'
 
   post 'base-report', to: 'activities#basereport'
+
+  post 'toggle-status',to: 'activities#toggle_status'
   
 
 

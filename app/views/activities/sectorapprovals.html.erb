@@ -40,7 +40,7 @@
                    <th>Detail </th>
 
                    <th>Actions </th>
-                     <<th>Add Comment </th>
+                    <th>Add Comment </th>
                     
                          <th>Status </th>
 
@@ -87,9 +87,14 @@
 
                    <td>
 
-            
+               
+<a id="apvd" class="btn btn-sm" href="/activities/<%= activity.id %>/toggle_status?foo_param=approved">
+<i class="fa fa-check-circle" style="color:green"></i> 
+</a>
 
-                          <%= link_to toggle_status_activity_path(activity,foo_param: 'approved'),class: 'btn btn-sm' do %>
+|
+
+<%= link_to toggle_status_activity_path(activity,foo_param: 'approved'),id:'apvd' ,class: 'btn btn-sm' do %>
 <i class="fa fa-check-circle" style="color:green"></i> 
 <%end %>
 
@@ -149,3 +154,9 @@
 
 
 </div>
+
+
+
+
+
+  

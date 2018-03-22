@@ -162,6 +162,8 @@ end
 
   def toggle_status
 
+    Rails.logger.debug "hi there :)"
+
     foo = params[:foo_param]
 =begin
     if @activity.rejected?
@@ -171,7 +173,11 @@ end
     elsif 'ken'
       @activity.approved!  
     end  
-=end       
+=end 
+
+
+
+
     if foo == 'approved'
       @activity.approved!
     elsif foo == 'rejected'
