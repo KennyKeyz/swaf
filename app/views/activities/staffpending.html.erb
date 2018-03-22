@@ -66,8 +66,8 @@
                      <tr>
        <td><%= activity.user.first_name %> <%= activity.user.last_name %></td>
         
-        <td><%= activity.detail[0...30] %></td>
-        <td><%= activity.remarks[0...30] %></td>
+        <td><%= activity.detail.truncate(50) %></td>
+        <td><%= activity.remarks.truncate(50) %></td>
          
 
       
