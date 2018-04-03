@@ -39,7 +39,7 @@ end
   
 
   def sectorapprovals
-    @sectapprovals = Activity.where(user_id: User.where(sector_id: current_user.sector_id,su_role:false)).order("created_at DESC")
+    @sectapprovals = Activity.where(user_id: User.where(sector_id: current_user.sector_id,ss_role:true)).order("created_at DESC")
 
   end  
 
